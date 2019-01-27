@@ -1,47 +1,47 @@
 - voucher: Google Play
-  urlimg: /img/googleplay-white_150px_74px.png
+  urlimg: ./img/googleplay-white_150px_74px.png
   name: vouchergoogleplay
 - voucher: "Ragnarok MEL"
-  urlimg: /img/ragnarok-mobile_150px_74px.png
+  urlimg: ./img/ragnarok-mobile_150px_74px.png
   name: voucherregnarokmel
 - voucher: Mobile Legends
-  urlimg: /img/ml_150px_74px.png
+  urlimg: ./img/ml_150px_74px.png
   name: voucherml
 - voucher: Free Fire
-  urlimg: /img/new-freefire_150px_74px.png
+  urlimg: ./img/new-freefire_150px_74px.png
   name: voucherfreefire
 - voucher: Arena of Valor
-  urlimg: /img/aov_150px_74px.png
+  urlimg: ./img/aov_150px_74px.png
   name: voucheraov
 - voucher: PUBG
-  urlimg: /img/pubg2_150px_74px.png
+  urlimg: ./img/pubg2_150px_74px.png
   name: voucherpubg
 - voucher: Steam Wallet
-  urlimg: /img/steam_150px_74px.png
+  urlimg: ./img/steam_150px_74px.png
   name: vouchersteamwallet
 - voucher: Lyto & Gravindo
-  urlimg: /img/lyto_150px_74px.png
+  urlimg: ./img/lyto_150px_74px.png
 - voucher: Ragnarok
-  urlimg: /img/old-ragnarok_150px_74px.png
+  urlimg: ./img/old-ragnarok_150px_74px.png
 - voucher: Garena
-  urlimg: /img/garena_150px_74px.png
+  urlimg: ./img/garena_150px_74px.png
 - voucher: Razer PIN
-  urlimg: /img/razorpin_150px_74px.png
+  urlimg: ./img/razorpin_150px_74px.png
 - voucher: RF Online
-  urlimg: /img/rf-online_150px_74px.png
+  urlimg: ./img/rf-online_150px_74px.png
 - voucher: WaveGame
-  urlimg: /img/wavegame_150px_74px.png
+  urlimg: ./img/wavegame_150px_74px.png
 - voucher: PSN Money
-  urlimg: /img/psn_150px_74px.png
+  urlimg: ./img/psn_150px_74px.png
 - voucher: PS Plus membership
-  urlimg: /img/ps-plus_150px_74px.png
+  urlimg: ./img/ps-plus_150px_74px.png
 - voucher: Nintendo eshop
-  urlimg: /img/nintendo_150px_74px.png
+  urlimg: ./img/nintendo_150px_74px.png
 - voucher: iTunes
-  urlimg: /img/itunes_150px_74px.png
+  urlimg: ./img/itunes_150px_74px.png
 - voucher: Megaxus
-  urlimg: /img/megaxus_150px_74px.png
+  urlimg: ./img/megaxus_150px_74px.png
 - voucher: Gemscool
-  urlimg: /img/gemscool_150px_74px.png
+  urlimg: ./img/gemscool_150px_74px.png
 - voucher: UniPin Voucher
-  urlimg: /img/unipin_150px_74px.png
+  urlimg: ./img/unipin_150px_74px.png
