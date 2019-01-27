@@ -9,8 +9,8 @@ my_name: Wirya Al-Mustofa
 description: >
   Jual alat tulis kantor, pulsa, paket data, listrik pln, voucher game, BPJS, PDAM, barang elektronik dan masih banyak lagi di lingkungan Universitas Islam Negeri Sultan Maulana Hasanuddin Banten
 
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # "https://wirya2700.github.io/tokov" # the base hostname & protocol for your site
+baseurl: "/tokov" # the subpath of your site, e.g. /blog/
+url: https://wirya2700.github.io/tokov # the base hostname & protocol for your site
 git_address: https://github.com/wirya2700/tokov
 
 # theme options from https://bootswatch.com/
