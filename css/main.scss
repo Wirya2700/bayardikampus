@@ -111,13 +111,21 @@ body {
 	float:left;
 	padding:5px;
 	border:1px solid #e2dfde;
-	margin:5px;
+	margin:5px 5px 5px 0;
 	font-size: 14px;
 }
 .product img{
 	width: 200px;
 	height: 200px;
 }
+
+@media only screen and (max-width: 600px) {
+	.product img{
+		width: 129.5px;
+		height: 129.5px;
+	}
+} 
+
 .product p a{
 	color:black;
 }
@@ -145,6 +153,6 @@ voucher_game{
   display: block;
 }
 
-.filterDiv {
+.filterdiv {
   display: none;
 }

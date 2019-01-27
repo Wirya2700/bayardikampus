@@ -33,8 +33,6 @@
   urlimg: ./img/wavegame_150px_74px.png
 - voucher: PSN Money
   urlimg: ./img/psn_150px_74px.png
-- voucher: PS Plus membership
-  urlimg: ./img/ps-plus_150px_74px.png
 - voucher: Nintendo eshop
   urlimg: ./img/nintendo_150px_74px.png
 - voucher: iTunes

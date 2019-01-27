@@ -1,4 +1,4 @@
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs" style="font-size:16px">
 	<li class="active"><a data-toggle="tab" href="#pulsa">Pulsa</a></li>
 	<li><a data-toggle="tab" href="#paketdata">Paket Data</a></li>
 	<li><a data-toggle="tab" href="#token_listrik">Tokon Listrik</a></li>
@@ -70,7 +70,7 @@
 	<div id="voucher_game" class="tab-pane fade">
 		{% for voucher in site.data.voucher_game %}
 			<div class="item_voucher" data-toggle="modal" data-target="#{{voucher.name}}">
-				<img src="{{voucher.urlimg}}" width="150px" height="74px">
+				<img src="{{voucher.urlimg}}" width="120px" height="60px">
 				<div class="item_voucher_judul">{{voucher.voucher}}</div>
 			</div>
 		{% endfor %}
@@ -82,10 +82,11 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title">Voucher : Google Play</h4>
 				</div>
 				<div class="modal-body">
-					<form id="frm_voucher_google_play" name="frm_voucher_google_play" method="post">
+					<div name="frm_voucher_google_play">
 						<fieldset>
 							<div class="form-group col-sm-8">
 								Pilih Voucher
@@ -99,10 +100,11 @@
 								<a class="btn btn-success" id="btn_beli_voucher_google_play" name="btn_beli_voucher_google_play">Beli voucher</a>
 							</div>
 						</fieldset>
-					</form>
+					</div>
 					<div class="alert alert-dismissible alert-success">
 					  <p>Satu tempat untuk segala bentuk hiburan:​ Film, buku, majalah, atau aplikasi dan game Android terbaru—semua tersedia di Google Play. Kapan saja, dimana saja:​ Akses film dan lainnya di perangkat Android, iPhone dan iPad, Chromecast, serta browser web Anda. Belanja dengan cepat dan fleksibel:​ Tak perlu kartu kredit untuk menukarkan kartu hadiah Google Play, dan masa berlaku saldo Anda tidak ada batasnya. Beli untuk orang terdekat atau hadiahkan kepada diri Anda sendiri.</p>							
 					</div>
+					<div style="clear:both"></div>
 				</div>
 			</div>
 		</div>
@@ -113,10 +115,11 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title">Voucher : Ragnarok MEL</h4>
 				</div>
 				<div class="modal-body">
-					<form id="frm_voucher_regnarok_mel" name="frm_voucher_regnarok_mel" method="post">
+					<form name="frm_voucher_regnarok_mel" method="post">
 						<fieldset>
 							<div class="form-group col-sm-5">
 								<label>ID</label>
@@ -156,10 +159,11 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title">Voucher : Mobile Legends</h4>
 				</div>
 				<div class="modal-body">
-					<form id="frm_voucher_ml" name="frm_voucher_ml" method="post">
+					<form name="frm_voucher_ml" method="post">
 						<fieldset>
 							<div class="form-group col-sm-5">
 								<label>User ID</label>
@@ -201,10 +205,11 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title">Voucher : Free Fire</h4>
 				</div>
 				<div class="modal-body">
-					<form id="frm_voucher_free_fire" name="frm_voucher_free_fire" method="post">
+					<form name="frm_voucher_free_fire" method="post">
 						<fieldset>
 							<div class="form-group col-sm-5">
 								<label>ID</label>
@@ -241,10 +246,11 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title">Voucher : AOV</h4>
 				</div>
 				<div class="modal-body">
-					<form id="frm_voucher_aov" name="frm_voucher_aov" method="post">
+					<form name="frm_voucher_aov" method="post">
 						<fieldset>
 							<div class="form-group col-sm-5">
 								<label>ID</label>
@@ -280,10 +286,11 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title">Voucher : PUBG</h4>
 				</div>
 				<div class="modal-body">
-					<form id="frm_voucher_pubg" name="frm_voucher_pubg" method="post">
+					<form name="frm_voucher_pubg" method="post">
 						<fieldset>
 							<div class="form-group col-sm-9">
 								Pilih Voucher
@@ -309,10 +316,11 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title">Voucher : Steam Wallet</h4>
 				</div>
 				<div class="modal-body">
-					<form id="frm_voucher_steam_wallet" name="frm_voucher_steam_wallet" method="post">
+					<form name="frm_voucher_steam_wallet" method="post">
 						<fieldset>
 							<div class="form-group col-sm-9">
 								Pilih Voucher
