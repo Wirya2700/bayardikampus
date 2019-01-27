@@ -1,0 +1,489 @@
+<ul class="nav nav-tabs">
+	<li class="active"><a data-toggle="tab" href="#pulsa">Pulsa</a></li>
+	<li><a data-toggle="tab" href="#paketdata">Paket Data</a></li>
+	<li><a data-toggle="tab" href="#token_listrik">Tokon Listrik</a></li>
+	<li><a data-toggle="tab" href="#voucher_game">Voucher Game</a></li>
+</ul>
+
+<div class="tab-content" style="border:1px solid #e2dfde;margin-top:10px;font-size:14px;">
+	<div id="pulsa" class="tab-pane fade in active">
+		<form id="frm_pulsa" name="frm_pulsa" method="post">
+			<fieldset>
+				<div class="form-group col-sm-5">
+					<label>No telepon</label>
+					<input type="text" id="txt_no" name="txt_no" class="form-control">
+				</div>
+				<div class="form-group col-sm-5">
+					Nominal
+					<select name="nominal" id="nominal" class="form-control">
+						{% for pulsa in site.data.pulsa %}
+							<option value="{{pulsa.name}}">{{pulsa.nominal}} (Rp{{pulsa.harga}}rb)</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="form-group col-sm-2"><br>
+					<a class="btn btn-success" id="btn_beli_pulsa" name="btn_beli_pulsa">Beli pulsa</a>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<div id="paketdata" class="tab-pane fade">
+		<form id="frm_paket_data" name="frm_paket_data" method="get">
+			<fieldset>
+				<div class="form-group col-sm-5">
+					<label>No telepon</label>
+					<input type="text" id="txt_no_paket" name="txt_no_paket" class="form-control">
+				</div>
+				<div class="form-group col-sm-5">
+					Pilih Paket
+					<select name="nominal_paket" id="nominal_paket" class="form-control">
+					
+					</select>
+				</div>
+				<div class="form-group col-sm-2"><br>
+					<a type="submit" class="btn btn-success" id="btn_paket_data" name="btn_paket_data">Beli paket</a>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<div id="token_listrik" class="tab-pane fade">
+		<form id="frm_token_listrik" name="frm_token_listrik" method="post">
+			<fieldset>
+				<div class="form-group col-sm-5">
+					<label>Nomor meter/ID pelanggan</label>
+					<input type="text" id="txt_id_pelanggan" name="txt_id_pelanggan" class="form-control">
+				</div>
+				<div class="form-group col-sm-5">
+					Nominal
+					<select name="nominal_token_listrik" id="nominal_token_listrik" class="form-control">
+						{% for listrik in site.data.listrik %}
+							<option value="{{listrik.name}} (Rp{{listrik.harga}}rb)">{{listrik.nominal}} (Rp{{listrik.harga}}rb)</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="form-group col-sm-2"><br>
+					<a class="btn btn-success" id="btn_beli_token_listrik" name="btn_beli_token_listrik">Beli token</a>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<div id="voucher_game" class="tab-pane fade">
+		{% for voucher in site.data.voucher_game %}
+			<div class="item_voucher" data-toggle="modal" data-target="#{{voucher.name}}">
+				<img src="{{voucher.urlimg}}" width="150px" height="74px">
+				<div class="item_voucher_judul">{{voucher.voucher}}</div>
+			</div>
+		{% endfor %}
+		<div style="clear:both"></div>
+	</div>
+
+	<!-- google play -->
+	<div class="modal fade" id="vouchergoogleplay">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Voucher : Google Play</h4>
+				</div>
+				<div class="modal-body">
+					<form id="frm_voucher_google_play" name="frm_voucher_google_play" method="post">
+						<fieldset>
+							<div class="form-group col-sm-8">
+								Pilih Voucher
+								<select name="nominal_voucher_google_play" id="nominal_voucher_google_play" class="form-control">
+									<option value="20000 (Rp25rb)">20.000 (Rp25rb)</option>
+									<option value="50000 (Rp60rb)">50.000 (Rp60rb)</option>
+									<option value="100000 (Rp115rb)">100.000 (Rp115rb)</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-2"><br>
+								<a class="btn btn-success" id="btn_beli_voucher_google_play" name="btn_beli_voucher_google_play">Beli voucher</a>
+							</div>
+						</fieldset>
+					</form>
+					<div class="alert alert-dismissible alert-success">
+					  <p>Satu tempat untuk segala bentuk hiburan:​ Film, buku, majalah, atau aplikasi dan game Android terbaru—semua tersedia di Google Play. Kapan saja, dimana saja:​ Akses film dan lainnya di perangkat Android, iPhone dan iPad, Chromecast, serta browser web Anda. Belanja dengan cepat dan fleksibel:​ Tak perlu kartu kredit untuk menukarkan kartu hadiah Google Play, dan masa berlaku saldo Anda tidak ada batasnya. Beli untuk orang terdekat atau hadiahkan kepada diri Anda sendiri.</p>							
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- ragnarok -->
+	<div class="modal fade" id="voucherregnarokmel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Voucher : Ragnarok MEL</h4>
+				</div>
+				<div class="modal-body">
+					<form id="frm_voucher_regnarok_mel" name="frm_voucher_regnarok_mel" method="post">
+						<fieldset>
+							<div class="form-group col-sm-5">
+								<label>ID</label>
+								<input type="text" id="txt_id_ragnarok" name="txt_id_ragnarok" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								Pilih Voucher
+								<select name="nominal_voucher_regnarok_mel" id="nominal_voucher_regnarok_mel" class="form-control">
+									<option value="8000 Zeny (Rp5rb)">8,000 Zeny (Rp5rb)</option>
+									<option value="18000 Zeny (Rp9rb)">18,000 Zeny (Rp9rb)</option>
+									<option value="40000 Zeny (Rp15rb)">40,000 Zeny (Rp15rb)</option>
+									<option value="54000 Zeny (Rp18rb)">54,000 Zeny (Rp18rb)</option>
+									<option value="80000 Zeny (Rp25rb)">80,000 Zeny (Rp25rb)</option>
+									<option value="120000 Zeny (Rp34rb)">120,000 Zeny (Rp34rb)</option>
+									<option value="200000 Zeny (Rp55rb)">200,000 Zeny (Rp55rb)</option>
+									<option value="300000 Zeny (Rp80rb)">300,000 Zeny (Rp80rb)</option>
+									<option value="400000 Zeny (Rp105rb)">400,000 Zeny (Rp105rb)</option>
+									<option value="600000 Zeny (Rp154rb)">600,000 Zeny (Rp154rb)</option>
+									<option value="800000 Zeny (Rp205rb)">800,000 Zeny (Rp205rb)</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-1"><br>
+								<a class="btn btn-success" id="btn_beli_voucher_regnarok_mel" name="btn_beli_voucher_regnarok_mel">Beli voucher</a>
+							</div>
+						</fieldset>
+					</form>
+					<div class="alert alert-dismissible alert-success">
+					  <p>Mohon perhatikan proses pengisian User ID. Pastikan pengisian nomor ID sesuai, hindari penggunaan spasi, atau penggunaan tanda baca lainnya "*#!.</p>							
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	<!-- mobile legends -->
+	<div class="modal fade" id="voucherml">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Voucher : Mobile Legends</h4>
+				</div>
+				<div class="modal-body">
+					<form id="frm_voucher_ml" name="frm_voucher_ml" method="post">
+						<fieldset>
+							<div class="form-group col-sm-5">
+								<label>User ID</label>
+								<input type="text" id="txt_id_ml" name="txt_id_ml" class="form-control">
+							</div>
+							<div class="form-group col-sm-5">
+								<label>Server ID</label>
+								<input type="text" id="txt_server_ml" name="txt_server_ml" class="form-control">
+							</div>
+							<div class="form-group col-sm-5">
+								Pilih Voucher
+								<select name="nominal_voucher_ml" id="nominal_voucher_ml" class="form-control">
+									<option value="11 Diamonds (Rp8rb)">11 Diamonds (Rp8rb)</option>
+									<option value="14 Diamonds (Rp9rb)">14 Diamonds (Rp9rb)</option>
+									<option value="19 Diamonds (Rp10rb)">19 Diamonds (Rp10rb)</option>
+									<option value="36 Diamonds (Rp15rb)">36 Diamonds (Rp15rb)</option>
+									<option value="74 Diamonds (Rp25rb)">74 Diamonds (Rp25rb)</option>
+									<option value="220 Diamonds (Rp65rb)">220 Diamonds (Rp65rb)</option>
+									<option value="275 Diamonds (Rp80rb)">275 Diamonds (Rp80rb)</option>
+									<option value="366 Diamonds (Rp105rb)">366 Diamonds (Rp105rb)</option>
+									<option value="Startlight Member (Rp154rb)">Startlight Member (Rp154rb)</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-1"><br>
+								<a class="btn btn-success" id="btn_beli_voucher_ml" name="btn_beli_voucher_ml">Beli voucher</a>
+							</div>
+						</fieldset>
+					</form>
+					<div class="alert alert-dismissible alert-success">
+					  <p>Contoh Format UserID di Game: UserID(ServerID) = 85186388(22224). Mohon perhatikan proses pengisian User ID dan Server ID. Pastikan pengisian nomor ID sesuai, hindari penggunaan spasi, atau penggunaan tanda baca lainnya "*#!.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- free fire -->
+	<div class="modal fade" id="voucherfreefire">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Voucher : Free Fire</h4>
+				</div>
+				<div class="modal-body">
+					<form id="frm_voucher_free_fire" name="frm_voucher_free_fire" method="post">
+						<fieldset>
+							<div class="form-group col-sm-5">
+								<label>ID</label>
+								<input type="text" id="txt_id_free_fire" name="txt_id_free_fire" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								Pilih Voucher
+								<select name="nominal_voucher_free_fire" id="nominal_voucher_free_fire" class="form-control">
+									<option value="5 Diamonds (Rp6rb)">5 Diamonds (Rp6rb)</option>
+									<option value="12 Diamonds (Rp7rb)">12 Diamonds (Rp7rb)</option>
+									<option value="50 Diamonds (Rp13rb)">50 Diamonds (Rp13rb)</option>
+									<option value="70 Diamonds (Rp15rb)">70 Diamonds (Rp15rb)</option>
+									<option value="140 Diamonds (Rp125rb)">140 Diamonds (Rp125rb)</option>
+									<option value="355 Diamonds (Rp55rb)">355 Diamonds (Rp55rb)</option>
+									<option value="720 Diamonds (Rp105rb)">720 Diamonds (Rp105rb)</option>
+									<option value="1450 Diamonds (Rp205rb)">1450 Diamonds (Rp205rb)</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-1"><br>
+								<a class="btn btn-success" id="btn_beli_voucher_free_fire" name="btn_beli_voucher_free_fire">Beli voucher</a>
+							</div>
+						</fieldset>
+					</form>
+					<div class="alert alert-dismissible alert-success">
+					  <p>Top up game Free Fire! Cukup dengan memasukkan Player ID dalam game diamond otomatis dikirim tanpa perlu redeem kode voucher. Solusi Pembayaran untuk iOS dan Android. Di halaman ini kamu dapat top up Diamond langsung ke akun Free Fire kamu. </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	<!-- AOV -->
+	<div class="modal fade" id="voucheraov">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Voucher : AOV</h4>
+				</div>
+				<div class="modal-body">
+					<form id="frm_voucher_aov" name="frm_voucher_aov" method="post">
+						<fieldset>
+							<div class="form-group col-sm-5">
+								<label>ID</label>
+								<input type="text" id="txt_id_aov" name="txt_id_aov" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								Pilih Voucher
+								<select name="nominal_voucher_aov" id="nominal_voucher_aov" class="form-control">
+									<option value="7 Vouchers (Rp7rb)">7 Vouchers (Rp7rb)</option>
+									<option value="18 Vouchers (Rp10rb)">18 Vouchers (Rp10rb)</option>
+									<option value="40 Vouchers (Rp15rb)">40 Vouchers (Rp15rb)</option>
+									<option value="90 Vouchers (Rp25rb)">90 Vouchers (Rp25rb)</option>
+									<option value="230 Vouchers (Rp55rb)">230 Vouchers (Rp55rb)</option>
+									<option value="470 Vouchers (Rp105rb)">470 Vouchers (Rp105rb)</option>
+									<option value="950 Vouchers (Rp205rb)">950 Vouchers (Rp205rb)</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-1"><br>
+								<a class="btn btn-success" id="btn_beli_voucher_aov" name="btn_beli_voucher_aov">Beli voucher</a>
+							</div>
+						</fieldset>
+					</form>
+					<div class="alert alert-dismissible alert-success">
+					  <p>Nikmati serunya main Mobile MobA favoritmu di mana saja dengan grafis HD dan animasi yang keren. Pilih Hero favoritmu dari kumpulan Hero unik dan mainkan dengan kontrol yang responsif. Mobile Arena adalah multiplayer 5v5 action game battle arena, yang dibuat dengan sangat memperhatikan fairness dan balance, sehingga kemenangan hanya dapat diraih dengan skill dari seorang gamer sejati.  </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	<!-- PUBG -->
+	<div class="modal fade" id="voucherpubg">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Voucher : PUBG</h4>
+				</div>
+				<div class="modal-body">
+					<form id="frm_voucher_pubg" name="frm_voucher_pubg" method="post">
+						<fieldset>
+							<div class="form-group col-sm-9">
+								Pilih Voucher
+								<select name="nominal_voucher_pubg" id="nominal_voucher_pubg" class="form-control">
+									<option value="PUBG Steam Key (Rp230rb)">PUBG Steam Key (Rp230rb)</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-1"><br>
+								<a class="btn btn-success" id="btn_beli_voucher_pubg" name="btn_beli_voucher_pubg">Beli voucher</a>
+							</div>
+						</fieldset>
+					</form>
+					<div class="alert alert-dismissible alert-success">
+					  <p>Rasakan keseruan bermain game multiplayer online terkeren saat ini bersama teman-teman. PlayerUnknown's Battlegrounds / PUBG adalah game bertemakan survival besutan developer Korea BlueHole. Beli KeySteam PUBG di Tokopedia dan uji kekompakan tim-mu dalam berbagai mode serta maps dunia yang berbeda. Jadilah pemenang dengan terus bertahan dengan berbagai cara untuk mendapatkan Chicken Dinner PUBG!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	<!-- Steam Wallet -->
+	<div class="modal fade" id="vouchersteamwallet">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Voucher : Steam Wallet</h4>
+				</div>
+				<div class="modal-body">
+					<form id="frm_voucher_steam_wallet" name="frm_voucher_steam_wallet" method="post">
+						<fieldset>
+							<div class="form-group col-sm-9">
+								Pilih Voucher
+								<select name="nominal_voucher_steam_wallet" id="nominal_voucher_steam_wallet" class="form-control">
+									<option value="6000 (Rp13rb)">6.000 (Rp13rb)</option>
+									<option value="12000 (Rp27rb)">12.000 (Rp27rb)</option>
+									<option value="45000 (Rp72rb)">45.000 (Rp72rb)</option>
+									<option value="60000 (Rp91rb)">60.000 (Rp91rb)</option>
+									<option value="90000 (Rp130rb)">90.000 (Rp130rb)</option>
+									<option value="120000 (Rp161rb)">120.000 (Rp161rb)</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-1"><br>
+								<a class="btn btn-success" id="btn_beli_voucher_steam_wallet" name="btn_beli_voucher_steam_wallet">Beli voucher</a>
+							</div>
+						</fieldset>
+					</form>
+					<div class="alert alert-dismissible alert-success">
+					  <p>Steam Wallet yang digunakan untuk top up game-game di Steam ataupun membeli game terbaru dari Steam. Adapun game-game top dari Steam adalah : DotA2, Counter Strike : Global Offensive, PlayerUnknown's BattleGround, Team Fortress, GTA V, dan masi banyak lagi.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#btn_beli_pulsa').click(function () {
+			sendData({{site.whatsapp}}, 
+			"Kak saya mau beli pulsa %0A" + 
+			"No%3A " + $("#txt_no").val() + "%0A" +
+			"Yang%3A " + $("#nominal").val() + "%0A" +
+			"Cepet ia kak %3A)");
+		})
+		$('#btn_paket_data').click(function () {
+			sendData({{site.whatsapp}}, 
+			"Kak saya mau beli paket data %0A" + 
+			"No%3A " + $("#txt_no_paket").val() + "%0A" +
+			"Yang%3A " + $("#nominal_paket").val() + "%0A" +
+			"Cepet ia kak %3A)");
+		})
+		$('#btn_beli_token_listrik').click(function () {
+			sendData({{site.whatsapp}}, 
+			"Kak saya mau beli token pulsa %0A" + 
+			"ID Pelanggan%3A " + $("#txt_id_pelanggan").val() + "%0A" +
+			"Yang%3A " + $("#nominal_token_listrik").val() + "%0A" +
+			"Cepet ia kak %3A)");
+		})
+		$('#btn_beli_voucher_google_play').click(function () {
+			sendData({{site.whatsapp}}, 
+			"Kak saya mau beli voucher google play yang " + $("#nominal_voucher_google_play").val() + "%0A" +
+			"Cepet ia kak %3A)");
+		})
+		$('#btn_beli_voucher_regnarok_mel').click(function () {
+			sendData({{site.whatsapp}}, 
+			"Kak saya mau beli voucher Ragnarok MEL%0A" + 
+			"ID%3A " + $("#txt_id_ragnarok").val() + "%0A" +
+			"Yang%3A " + $("#nominal_voucher_regnarok_mel").val() + "%0A" +
+			"Cepet ia kak %3A)");
+		})
+		$('#btn_beli_voucher_ml').click(function () {
+			sendData({{site.whatsapp}}, 
+			"Kak saya mau beli voucher Mobile Legends%0A" + 
+			"ID%3A " + $("#txt_id_ml").val() + "%0A" +
+			"Server%3A " + $("#txt_server_ml").val() + "%0A" +
+			"Yang%3A " + $("#nominal_voucher_ml").val() + "%0A" +
+			"Cepet ia kak %3A)");
+		})
+		$('#btn_beli_voucher_free_fire').click(function () {
+			sendData({{site.whatsapp}}, 
+			"Kak saya mau beli voucher Free Fire%0A" + 
+			"ID%3A " + $("#txt_id_free_fire").val() + "%0A" +
+			"Yang%3A " + $("#nominal_voucher_free_fire").val() + "%0A" +
+			"Cepet ia kak %3A)");
+		})
+		$('#btn_beli_voucher_aov').click(function () {
+			sendData({{site.whatsapp}}, 
+			"Kak saya mau beli voucher AOV%0A" + 
+			"ID%3A " + $("#txt_id_aov").val() + "%0A" +
+			"Yang%3A " + $("#nominal_voucher_aov").val() + "%0A" +
+			"Cepet ia kak %3A)");
+		})
+		$('#btn_beli_voucher_pubg').click(function () {
+			sendData({{site.whatsapp}}, 
+			"Kak saya mau beli voucher AOV" + " yang " + $("#nominal_voucher_pubg").val() + "%0A" +
+			"Cepet ia kak %3A)");
+		})
+		$('#btn_beli_voucher_steam_wallet').click(function () {
+			sendData({{site.whatsapp}}, 
+			"Kak saya mau beli voucher Steam Wallet" + " yang " + $("#nominal_voucher_steam_wallet").val() + "%0A" +
+			"Cepet ia kak %3A)");
+		})
+		function clearOption(){
+			{% for paket in site.data.paket_data %}
+				$('option[value="{{paket.name}}"]', $('#nominal_paket')).remove();
+			{% endfor %}
+		}
+		$('#txt_no_paket').keyup(function () {
+			if($(this).val().substring(0, 4)=='0811' || 
+				$(this).val().substring(0, 4)=='0812' || 
+				$(this).val().substring(0, 4)=='0813' || 
+				$(this).val().substring(0, 4)=='0821' || 
+				$(this).val().substring(0, 4)=='0822' || 
+				$(this).val().substring(0, 4)=='0823' || 
+				$(this).val().substring(0, 4)=='0852' || 
+				$(this).val().substring(0, 4)=='0853'){
+				{% for paket in site.data.paket_data %}
+					{% if paket.operator == 'Telkomsel' %}
+						$("#nominal_paket").append('<option value="{{paket.name}} (Rp{{paket.harga}}rb)">{{paket.name}} (Rp{{paket.harga}}rb)</option>');
+					{% endif %}
+				{% endfor %}
+			}
+			else if($(this).val().substring(0, 4)=='0814' || 
+					$(this).val().substring(0, 4)=='0815' || 
+					$(this).val().substring(0, 4)=='0816' || 
+					$(this).val().substring(0, 4)=='0855' || 
+					$(this).val().substring(0, 4)=='0856' || 
+					$(this).val().substring(0, 4)=='0857' || 
+					$(this).val().substring(0, 4)=='0858'){
+				{% for paket in site.data.paket_data %}
+					{% if paket.operator == 'Indosat' %}
+						$("#nominal_paket").append('<option value="{{paket.name}} (Rp{{paket.harga}}rb)">{{paket.name}} (Rp{{paket.harga}}rb)</option>');
+					{% endif %}
+				{% endfor %}
+			}
+			else if($(this).val().substring(0, 4)=='0817' || 
+					$(this).val().substring(0, 4)=='0818' || 
+					$(this).val().substring(0, 4)=='0819' || 
+					$(this).val().substring(0, 4)=='0859' || 
+					$(this).val().substring(0, 4)=='0877' || 
+					$(this).val().substring(0, 4)=='0878' || 
+					$(this).val().substring(0, 4)=='0879'){
+				{% for paket in site.data.paket_data %}
+					{% if paket.operator == 'XL' %}
+						$("#nominal_paket").append('<option value="{{paket.name}} (Rp{{paket.harga}}rb)">{{paket.name}} (Rp{{paket.harga}}rb)</option>');
+					{% endif %}
+				{% endfor %}
+			}
+			else if($(this).val().substring(0, 4)=='0831' || 
+					$(this).val().substring(0, 4)=='0838'){
+				{% for paket in site.data.paket_data %}
+					{% if paket.operator == 'AXIS' %}
+						$("#nominal_paket").append('<option value="{{paket.name}} (Rp{{paket.harga}}rb)">{{paket.name}} (Rp{{paket.harga}}rb)</option>');
+					{% endif %}
+				{% endfor %}
+			}
+			else if($(this).val().substring(0, 4)=='0896' || 
+					$(this).val().substring(0, 4)=='0897' || 
+					$(this).val().substring(0, 4)=='0898' || 
+					$(this).val().substring(0, 4)=='0899'){
+				{% for paket in site.data.paket_data %}
+					{% if paket.operator == 'Three' %}
+						$("#nominal_paket").append('<option value="{{paket.name}} (Rp{{paket.harga}}rb)">{{paket.name}} (Rp{{paket.harga}}rb)</option>');
+					{% endif %}
+				{% endfor %}
+			}
+			else if($(this).val().substring(0, 4)=='0881' || 
+					$(this).val().substring(0, 4)=='0882' || 
+					$(this).val().substring(0, 4)=='0883' || 
+					$(this).val().substring(0, 4)=='0884' ||
+					$(this).val().substring(0, 4)=='0887'){
+				{% for paket in site.data.paket_data %}
+					{% if paket.operator == 'Smartfren' %}
+						$("#nominal_paket").append('<option value="{{paket.name}} (Rp{{paket.harga}}rb)">{{paket.name}} (Rp{{paket.harga}}rb)</option>');
+					{% endif %}
+				{% endfor %}
+			}
+			else{
+				clearOption();
+			}
+		});
+	});
+</script>

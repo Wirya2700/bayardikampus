@@ -1,0 +1,9 @@
+- name: 20000
+  harga: 23
+  nominal: '20.000'
+- name: 50000
+  harga: 52
+  nominal: '50.000'
+- name: 100000
+  harga: 102
+  nominal: '100.000'

@@ -1,0 +1,150 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+
+
+
+@import
+  {% if site.bootwatch %}
+    "bootswatch/{{site.bootwatch | downcase}}/variables",
+  {% endif %}
+
+  "bootstrap",
+
+  {% if site.bootwatch %}
+    "bootswatch/{{site.bootwatch | downcase}}/bootswatch",
+  {% endif %}
+
+  "syntax-highlighting",
+  "typeahead"
+;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  padding-top: $navbar-height + $navbar-margin-bottom;
+}
+
+.navbar-brand{
+  img{
+    margin: -$navbar-padding-vertical 0;
+    height: $navbar-height;
+    padding: 10px 0;
+  }
+}
+
+
+.header-container {
+  background-color: #D8E8EA;
+  color: #fff;
+
+  h1 {
+    color: #fff;
+  }
+  background: url('../img/bg.jpg') no-repeat 50% 0;
+  // background-attachment: fixed;
+  background-size: cover;
+  background-position: center 36%;
+  margin-top: -37px;
+}
+
+.header-container::before{
+	filter: blur(5px);
+}
+
+.navbar-container {
+  font-size: 20px;
+}
+.page-content {
+  padding-bottom: 20px;
+  min-height:600px;
+}
+.footer {
+  bottom: 0px;
+  width: 100%;
+  padding-top: 10px;
+  background-color: #273443;
+  color: #fff;
+  font-size:14px;
+}
+
+.footer h4,h5{
+	color:rgba(255,255,255,0.6);
+}
+
+.footer ul {
+  list-style-type: none;
+}
+
+.footer a {
+  color:#fff;
+}
+
+.four {
+  background-color: rgb(35, 47, 60);
+  color:rgba(255,255,255,0.6);
+  padding:10px;
+}
+
+.post-list-container {
+  li a.active {
+    font-weight: bold;
+  }
+}
+*[id]:before {
+  display: block;
+  content: " ";
+  margin-top: -75px;
+  height: 75px;
+  visibility: hidden;
+}
+.navbar-form .has-feedback .form-control-feedback{
+  top:10px
+}
+
+.product{
+	float:left;
+	padding:5px;
+	border:1px solid #e2dfde;
+	margin:5px;
+	font-size: 14px;
+}
+.product img{
+	width: 200px;
+	height: 200px;
+}
+.product p a{
+	color:black;
+}
+.product span{
+	font-weight: bold;
+	color:#42b549;
+}
+
+voucher_game{
+	overflow:hidden;
+}
+
+.item_voucher{
+	border:1px solid #e2dfde;
+	margin:5px;
+	background-color:#f9f9f9;
+	cursor: pointer;
+	border-radius: 3px;
+	text-align: center;
+	float:left;
+	padding:5px;
+}
+
+.show {
+  display: block;
+}
+
+.filterDiv {
+  display: none;
+}

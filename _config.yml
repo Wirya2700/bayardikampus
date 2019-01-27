@@ -1,0 +1,56 @@
+# Site settings
+title: TokoV
+email: wirya2700@gmail.com
+facebook: WiryAl.Mustofha
+whatsapp: '6283877101953'
+twitter: wiryalmustofha
+my_name: Wirya Al-Mustofa
+
+description: >
+  Jual alat tulis kantor, pulsa, paket data, listrik pln, voucher game, BPJS, PDAM, barang elektronik dan masih banyak lagi di lingkungan Universitas Islam Negeri Sultan Maulana Hasanuddin Banten
+
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "" # "https://wirya2700.github.io/tokov" # the base hostname & protocol for your site
+git_address: https://github.com/wirya2700/tokov
+
+# theme options from https://bootswatch.com/
+# comment out this to use default Bootstrap
+bootwatch: paper
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .idea/
+  - .gitignore
+  - README.md
+timezone: Europe/Berlin
+defaults:
+- scope:
+    path: _posts
+    type: posts
+  values:
+    layout: post
+    sectionid: blog
+
+- scope:
+    path: _contents
+    type: posts
+  values:
+    layout: post
+    sectionid: contents
+    seo:
+      type: "WebPage"
+
+collections:
+  contents:
+    permalink: /:collection/:path/
+    output: true

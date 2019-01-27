@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<div class="header-container jumbotron">
+    <div class="container">
+        <h3 style="color:#fff">Selamat datang di {{site.title}}</h3>
+        <blockquote class="blockquote">
+            <p class="mb-0">TokoV atau Toko Virtual menjual alat tulis kantor, pulsa, paket data, listrik PLN, voucher game, BPJS, PDAM, barang elektronik dan masih banyak lagi di lingkungan Universitas Islam Negeri Sultan Maulana Hasanuddin Banten</p>
+			<p class="mb-0">Untuk pembayaran sangat mudah dengan cara info team kami via WA tak butuh waktu lama team kami langsung datang ke lokasi Anda di lingkungan kampus UIN SMH Banten dan bayar deh, gampang kan :)</p>
+            <footer class="blockquote-footer txt-color-red">Owner {{site.my_name}}</footer>
+        </blockquote>
+    </div>
+</div>
+
+
+<div class="container">
+	{% include evoucher.html %}
+	
+	<div>
+		{% for section in site.data.products %}
+		<div class="filterDiv {{section.product}}">
+			<a href="http://api.whatsapp.com/send?phone={{site.whatsapp}}&text=Kak saya mau beli 1 buah {{section.product}} Rp{{section.harga}}rb besok bayarnya di kampus UINSMH ia kak %3A)">
+				<div class="product">
+					<img src="{{section.urlimg}}"></img>
+					<p><a href="http://api.whatsapp.com/send?phone={{site.whatsapp}}&text=Kak saya mau beli 1 buah {{section.product}} Rp{{section.harga}}rb besok bayarnya di kampus UINSMH ia kak %3A)">{{section.product}}</a><br><span>Rp {{section.harga}}rb</span></p>
+				</div>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+</div>
