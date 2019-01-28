@@ -197,8 +197,8 @@
 .navbar-toggle {
   position: relative;
   float: right;
-  margin-right: $navbar-padding-horizontal;
-  padding: 9px 10px;
+  margin-right: 5px;
+  padding: 9px 0 9px 10px;
   @include navbar-vertical-align(34px);
   background-color: transparent;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214

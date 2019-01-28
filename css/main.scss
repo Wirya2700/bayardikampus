@@ -164,6 +164,14 @@ voucher_game{
 	@media (min-width: $grid-float-breakpoint) {
 		display: none;
 	}
+	
+	@media (max-width: 355px) {
+		float:left;
+		margin-left:15px;
+		margin-bottom: 10px;
+		padding-right: 50px;
+		width: 100% !important;
+	}
 }
 
 .search2{
