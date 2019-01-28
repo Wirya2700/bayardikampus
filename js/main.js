@@ -9,6 +9,7 @@ $(function() {
 	
 	filterSelection("all")
 	$("#search-box").bind("keypress", {}, keypressInBox);
+	$("#search-box1").bind("keypress", {}, keypressInBox1);
 });
 
 // kirim data ke wa
@@ -21,6 +22,14 @@ function keypressInBox(e) {
 	if (code == 13) { //Enter keycode                        
 		e.preventDefault();
 		filterSelection($("#search-box").val().toLowerCase())
+	}
+};
+
+function keypressInBox1(e) {
+	var code = (e.keyCode ? e.keyCode : e.which);
+	if (code == 13) { //Enter keycode                        
+		e.preventDefault();
+		filterSelection($("#search-box1").val().toLowerCase())
 	}
 };
 

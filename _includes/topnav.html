@@ -1,15 +1,30 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container navbar-container">
         <div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
             <a class="navbar-brand text-capitalize" href="{{ site.baseurl }}/">
                 {{ site.title }}
             </a>
-			<form class="navbar-left navbar-toggle">
-					<div class="form-group has-feedback">
-                        <input id="search-box" type="text" class="form-control" placeholder="Pencarian kilat..." style="width:200px !important;">
-                        <i class="fa fa-search form-control-feedback"></i>
-                    </div>
-                </form>
+			<div class="search1">
+				<input id="search-box1" type="text" class="form-control" placeholder="Pencarian kilat...">
+			</div>
         </div>
+		<div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+				{% for section in site.data.menu %}
+				<li class="{% if page.title==section.title %} active {% endif %}">
+					<a href="/{{section.title}}">{{section.title}}</a>
+				</li>
+				{% endfor %}
+            </ul>
+		</div>
+		<div class="search2">
+			<input id="search-box" type="text" class="form-control" placeholder="Pencarian kilat...">
+		</div>
     </div>
 </nav>

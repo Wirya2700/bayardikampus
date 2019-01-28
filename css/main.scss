@@ -156,3 +156,21 @@ voucher_game{
 .filterdiv {
   display: none;
 }
+
+.search1{
+	margin-top: 10px;
+	width:200px !important;
+	float:right;
+	@media (min-width: $grid-float-breakpoint) {
+		display: none;
+	}
+}
+
+.search2{
+	margin-top: 10px;
+	width:200px !important;
+	float:right;
+	@media (max-width: $grid-float-breakpoint) {
+		display: none;
+	}
+}
