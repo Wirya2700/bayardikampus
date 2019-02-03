@@ -18,7 +18,7 @@
             <ul class="nav navbar-nav">
 				{% for section in site.data.menu %}
 				<li class="{% if page.title==section.title %} active {% endif %}">
-					<a href="/tokov/{{section.name}}">{{section.title}}</a>
+					<a href="{{site.baseurl}}/{{section.name}}">{{section.title}}</a>
 				</li>
 				{% endfor %}
             </ul>

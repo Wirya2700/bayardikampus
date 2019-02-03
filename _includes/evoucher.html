@@ -1,6 +1,7 @@
 <ul class="nav nav-tabs" style="font-size:16px">
 	<li class="active"><a data-toggle="tab" href="#pulsa">Pulsa</a></li>
 	<li><a data-toggle="tab" href="#paketdata">Paket Data</a></li>
+	<li><a data-toggle="tab" href="#kirim_uang">Kirim Uang</a></li>
 	<li><a data-toggle="tab" href="#token_listrik">Tokon Listrik</a></li>
 	<li><a data-toggle="tab" href="#voucher_game">Voucher Game</a></li>
 </ul>
@@ -11,7 +12,7 @@
 			<fieldset>
 				<div class="form-group col-sm-5">
 					<label>No telepon</label>
-					<input type="text" id="txt_no" name="txt_no" class="form-control">
+					<input type="number" id="txt_no" name="txt_no" class="form-control">
 				</div>
 				<div class="form-group col-sm-5">
 					Nominal
@@ -32,7 +33,7 @@
 			<fieldset>
 				<div class="form-group col-sm-5">
 					<label>No telepon</label>
-					<input type="text" id="txt_no_paket" name="txt_no_paket" class="form-control">
+					<input type="number" id="txt_no_paket" name="txt_no_paket" class="form-control">
 				</div>
 				<div class="form-group col-sm-5">
 					Pilih Paket
@@ -46,12 +47,44 @@
 			</fieldset>
 		</form>
 	</div>
+	<div id="kirim_uang" class="tab-pane fade">
+		<form name="frm_kirim_uang" method="post">
+			<fieldset>
+				<div class="row">
+					<div class="col col-sm-12">
+						<div class="alert alert-dismissible alert-success">
+							<strong>Info Metode Pembayaran</strong>
+							<p>Untuk pengiriman uang selain rekening BRI dikenakan tarif biaya kirim sebesar 6.500</p>
+						</div>
+					</div>
+				</div>
+				<div class="form-group col-sm-4">
+					<label>Rekening Tujuan</label>
+					<input type="number" id="txt_no_rekening_tujuan" name="txt_no_rekening_tujuan" class="form-control">
+				</div>
+				<div class="form-group col-sm-3">
+					<label>Jumlah uang</label>
+					<input type="number" id="txt_jml_uang" name="txt_jml_uang" class="form-control" onkeyup="keypressInText()">
+				</div>
+				<div class="form-group col-sm-3">
+					<label>Total (+biaya admin)</label><br>
+					<label><strong><span id="lbl_total">0</span></strong></label>
+				</div>
+				<div class="form-group col-sm-2"><br>
+					<a class="btn btn-success" id="btn_kirim_uang" name="btn_kirim_uang">Kirim Uang</a>
+				</div>
+				<div class="form-group col-sm-12">
+					<p style="color:red">*Biaya admin Rp3rb</p>
+				</div>
+			</fieldset>
+		</form>
+	</div>
 	<div id="token_listrik" class="tab-pane fade">
 		<form id="frm_token_listrik" name="frm_token_listrik" method="post">
 			<fieldset>
 				<div class="form-group col-sm-5">
 					<label>Nomor meter/ID pelanggan</label>
-					<input type="text" id="txt_id_pelanggan" name="txt_id_pelanggan" class="form-control">
+					<input type="number" id="txt_id_pelanggan" name="txt_id_pelanggan" class="form-control">
 				</div>
 				<div class="form-group col-sm-5">
 					Nominal
@@ -70,7 +103,7 @@
 	<div id="voucher_game" class="tab-pane fade">
 		{% for voucher in site.data.voucher_game %}
 			<div class="item_voucher" data-toggle="modal" data-target="#{{voucher.name}}">
-				<img src="{{voucher.urlimg}}" width="120px" height="60px">
+				<img src="{{ site.baseurl }}/{{voucher.urlimg}}" width="120px" height="60px">
 				<div class="item_voucher_judul">{{voucher.voucher}}</div>
 			</div>
 		{% endfor %}
@@ -91,9 +124,9 @@
 							<div class="form-group col-sm-8">
 								Pilih Voucher
 								<select name="nominal_voucher_google_play" id="nominal_voucher_google_play" class="form-control">
-									<option value="20000 (Rp25rb)">20.000 (Rp25rb)</option>
-									<option value="50000 (Rp60rb)">50.000 (Rp60rb)</option>
-									<option value="100000 (Rp115rb)">100.000 (Rp115rb)</option>
+									<option value="20000 (Rp24rb)">20.000 (Rp24rb)</option>
+									<option value="50000 (Rp57rb)">50.000 (Rp57rb)</option>
+									<option value="100000 (Rp112rb)">100.000 (Rp112rb)</option>
 								</select>
 							</div>
 							<div class="form-group col-sm-2"><br>
@@ -123,22 +156,22 @@
 						<fieldset>
 							<div class="form-group col-sm-5">
 								<label>ID</label>
-								<input type="text" id="txt_id_ragnarok" name="txt_id_ragnarok" class="form-control">
+								<input type="number" id="txt_id_ragnarok" name="txt_id_ragnarok" class="form-control">
 							</div>
 							<div class="form-group col-sm-4">
 								Pilih Voucher
 								<select name="nominal_voucher_regnarok_mel" id="nominal_voucher_regnarok_mel" class="form-control">
-									<option value="8000 Zeny (Rp5rb)">8,000 Zeny (Rp5rb)</option>
-									<option value="18000 Zeny (Rp9rb)">18,000 Zeny (Rp9rb)</option>
-									<option value="40000 Zeny (Rp15rb)">40,000 Zeny (Rp15rb)</option>
-									<option value="54000 Zeny (Rp18rb)">54,000 Zeny (Rp18rb)</option>
-									<option value="80000 Zeny (Rp25rb)">80,000 Zeny (Rp25rb)</option>
-									<option value="120000 Zeny (Rp34rb)">120,000 Zeny (Rp34rb)</option>
-									<option value="200000 Zeny (Rp55rb)">200,000 Zeny (Rp55rb)</option>
-									<option value="300000 Zeny (Rp80rb)">300,000 Zeny (Rp80rb)</option>
-									<option value="400000 Zeny (Rp105rb)">400,000 Zeny (Rp105rb)</option>
-									<option value="600000 Zeny (Rp154rb)">600,000 Zeny (Rp154rb)</option>
-									<option value="800000 Zeny (Rp205rb)">800,000 Zeny (Rp205rb)</option>
+									<option value="8000 Zeny (Rp3.500)">8,000 Zeny (Rp3.500)</option>
+									<option value="18000 Zeny (Rp6.000)">18,000 Zeny (Rp5.000)</option>
+									<option value="40000 Zeny (Rp12.000)">40,000 Zeny (Rp12.000)</option>
+									<option value="54000 Zeny (Rp15.000)">54,000 Zeny (Rp15.000)</option>
+									<option value="80000 Zeny (Rp22.000)">80,000 Zeny (Rp22.000)</option>
+									<option value="120000 Zeny (Rp31.000)">120,000 Zeny (Rp31.000)</option>
+									<option value="200000 Zeny (Rp52.000)">200,000 Zeny (Rp52.000)</option>
+									<option value="300000 Zeny (Rp77.000)">300,000 Zeny (Rp77.000)</option>
+									<option value="400000 Zeny (Rp102.000)">400,000 Zeny (Rp102.000)</option>
+									<option value="600000 Zeny (Rp151.000)">600,000 Zeny (Rp151.000)</option>
+									<option value="800000 Zeny (Rp202.000)">800,000 Zeny (Rp202.000)</option>
 								</select>
 							</div>
 							<div class="form-group col-sm-1"><br>
@@ -167,24 +200,24 @@
 						<fieldset>
 							<div class="form-group col-sm-5">
 								<label>User ID</label>
-								<input type="text" id="txt_id_ml" name="txt_id_ml" class="form-control">
+								<input type="number" id="txt_id_ml" name="txt_id_ml" class="form-control">
 							</div>
 							<div class="form-group col-sm-5">
 								<label>Server ID</label>
-								<input type="text" id="txt_server_ml" name="txt_server_ml" class="form-control">
+								<input type="number" id="txt_server_ml" name="txt_server_ml" class="form-control">
 							</div>
 							<div class="form-group col-sm-5">
 								Pilih Voucher
 								<select name="nominal_voucher_ml" id="nominal_voucher_ml" class="form-control">
-									<option value="11 Diamonds (Rp8rb)">11 Diamonds (Rp8rb)</option>
-									<option value="14 Diamonds (Rp9rb)">14 Diamonds (Rp9rb)</option>
-									<option value="19 Diamonds (Rp10rb)">19 Diamonds (Rp10rb)</option>
-									<option value="36 Diamonds (Rp15rb)">36 Diamonds (Rp15rb)</option>
-									<option value="74 Diamonds (Rp25rb)">74 Diamonds (Rp25rb)</option>
-									<option value="220 Diamonds (Rp65rb)">220 Diamonds (Rp65rb)</option>
-									<option value="275 Diamonds (Rp80rb)">275 Diamonds (Rp80rb)</option>
-									<option value="366 Diamonds (Rp105rb)">366 Diamonds (Rp105rb)</option>
-									<option value="Startlight Member (Rp154rb)">Startlight Member (Rp154rb)</option>
+									<option value="11 Diamonds (Rp4rb)">11 Diamonds (Rp4rb)</option>
+									<option value="14 Diamonds (Rp5rb)">14 Diamonds (Rp5rb)</option>
+									<option value="19 Diamonds (Rp6rb)">19 Diamonds (Rp6rb)</option>
+									<option value="36 Diamonds (Rp11rb)">36 Diamonds (Rp11rb)</option>
+									<option value="74 Diamonds (Rp21rb)">74 Diamonds (Rp21rb)</option>
+									<option value="220 Diamonds (Rp61rb)">220 Diamonds (Rp61rb)</option>
+									<option value="275 Diamonds (Rp76rb)">275 Diamonds (Rp76rb)</option>
+									<option value="366 Diamonds (Rp101rb)">366 Diamonds (Rp101rb)</option>
+									<option value="Startlight Member (Rp150rb)">Startlight Member (Rp150rb)</option>
 								</select>
 							</div>
 							<div class="form-group col-sm-1"><br>
@@ -193,7 +226,7 @@
 						</fieldset>
 					</form>
 					<div class="alert alert-dismissible alert-success">
-					  <p>Contoh Format UserID di Game: UserID(ServerID) = 85186388(22224). Mohon perhatikan proses pengisian User ID dan Server ID. Pastikan pengisian nomor ID sesuai, hindari penggunaan spasi, atau penggunaan tanda baca lainnya "*#!.</p>
+					  <p>Contoh Format UserID di Game: UserID(ServerID) = 85186388(22224). Mohon perhatikan proses pengisian User ID dan Server ID. Pastikan pengisian nomor ID sesuai, hindari penggunaan spasi, atau penggunaan tanda baca lainnya "*#!. Masih bingung klik link berikut <u><a href="{{site.baseurl}}/evoucher/ml">Cara beli voucher ML</a></u></p>
 					</div>
 				</div>
 			</div>
@@ -213,19 +246,17 @@
 						<fieldset>
 							<div class="form-group col-sm-5">
 								<label>ID</label>
-								<input type="text" id="txt_id_free_fire" name="txt_id_free_fire" class="form-control">
+								<input type="number" id="txt_id_free_fire" name="txt_id_free_fire" class="form-control">
 							</div>
 							<div class="form-group col-sm-4">
 								Pilih Voucher
 								<select name="nominal_voucher_free_fire" id="nominal_voucher_free_fire" class="form-control">
-									<option value="5 Diamonds (Rp6rb)">5 Diamonds (Rp6rb)</option>
-									<option value="12 Diamonds (Rp7rb)">12 Diamonds (Rp7rb)</option>
-									<option value="50 Diamonds (Rp13rb)">50 Diamonds (Rp13rb)</option>
-									<option value="70 Diamonds (Rp15rb)">70 Diamonds (Rp15rb)</option>
-									<option value="140 Diamonds (Rp125rb)">140 Diamonds (Rp125rb)</option>
-									<option value="355 Diamonds (Rp55rb)">355 Diamonds (Rp55rb)</option>
-									<option value="720 Diamonds (Rp105rb)">720 Diamonds (Rp105rb)</option>
-									<option value="1450 Diamonds (Rp205rb)">1450 Diamonds (Rp205rb)</option>
+									<option value="5 Diamonds (Rp2rb)">5 Diamonds (Rp2rb)</option>
+									<option value="12 Diamonds (Rp3rb)">12 Diamonds (Rp3rb)</option>
+									<option value="50 Diamonds (Rp9rb)">50 Diamonds (Rp9rb)</option>
+									<option value="70 Diamonds (Rp11rb)">70 Diamonds (Rp11rb)</option>
+									<option value="140 Diamonds (Rp21rb)">140 Diamonds (Rp21rb)</option>
+									<option value="355 Diamonds (Rp51rb)">355 Diamonds (Rp51rb)</option>
 								</select>
 							</div>
 							<div class="form-group col-sm-1"><br>
@@ -254,18 +285,16 @@
 						<fieldset>
 							<div class="form-group col-sm-5">
 								<label>ID</label>
-								<input type="text" id="txt_id_aov" name="txt_id_aov" class="form-control">
+								<input type="number" id="txt_id_aov" name="txt_id_aov" class="form-control">
 							</div>
 							<div class="form-group col-sm-4">
 								Pilih Voucher
 								<select name="nominal_voucher_aov" id="nominal_voucher_aov" class="form-control">
-									<option value="7 Vouchers (Rp7rb)">7 Vouchers (Rp7rb)</option>
-									<option value="18 Vouchers (Rp10rb)">18 Vouchers (Rp10rb)</option>
-									<option value="40 Vouchers (Rp15rb)">40 Vouchers (Rp15rb)</option>
-									<option value="90 Vouchers (Rp25rb)">90 Vouchers (Rp25rb)</option>
-									<option value="230 Vouchers (Rp55rb)">230 Vouchers (Rp55rb)</option>
-									<option value="470 Vouchers (Rp105rb)">470 Vouchers (Rp105rb)</option>
-									<option value="950 Vouchers (Rp205rb)">950 Vouchers (Rp205rb)</option>
+									<option value="7 Vouchers (Rp3rb)">7 Vouchers (Rp3rb)</option>
+									<option value="18 Vouchers (Rp3rb)">18 Vouchers (Rp6rb)</option>
+									<option value="40 Vouchers (Rp11rb)">40 Vouchers (Rp11rb)</option>
+									<option value="90 Vouchers (Rp21rb)">90 Vouchers (Rp21rb)</option>
+									<option value="230 Vouchers (Rp51rb)">230 Vouchers (Rp51rb)</option>
 								</select>
 							</div>
 							<div class="form-group col-sm-1"><br>
@@ -325,12 +354,12 @@
 							<div class="form-group col-sm-9">
 								Pilih Voucher
 								<select name="nominal_voucher_steam_wallet" id="nominal_voucher_steam_wallet" class="form-control">
-									<option value="6000 (Rp13rb)">6.000 (Rp13rb)</option>
-									<option value="12000 (Rp27rb)">12.000 (Rp27rb)</option>
-									<option value="45000 (Rp72rb)">45.000 (Rp72rb)</option>
-									<option value="60000 (Rp91rb)">60.000 (Rp91rb)</option>
-									<option value="90000 (Rp130rb)">90.000 (Rp130rb)</option>
-									<option value="120000 (Rp161rb)">120.000 (Rp161rb)</option>
+									<option value="6000 (Rp10rb)">6.000 (Rp10rb)</option>
+									<option value="12000 (Rp25rb)">12.000 (Rp25rb)</option>
+									<option value="45000 (Rp69rb)">45.000 (Rp69rb)</option>
+									<option value="60000 (Rp88rb)">60.000 (Rp88rb)</option>
+									<option value="90000 (Rp127rb)">90.000 (Rp127rb)</option>
+									<option value="120000 (Rp167rb)">120.000 (Rp167rb)</option>
 								</select>
 							</div>
 							<div class="form-group col-sm-1"><br>
@@ -348,7 +377,18 @@
 </div>
 
 <script type="text/javascript">
+	function keypressInText() {
+		document.getElementById("lbl_total").innerHTML = (Number($("#txt_jml_uang").val()) + 3000)
+	};
+	
 	$(document).ready(function () {
+		$('#btn_kirim_uang').click(function () {
+			sendData({{site.whatsapp}}, 
+			"Kak saya mau kirim uang ke %0A" + 
+			"Rek Tujuan%3A " + $("#txt_no_rekening_tujuan").val() + "%0A" +
+			"Jumlah%3A " + $("#txt_jml_uang").val() + "%0A" +
+			"Cepet ia kak %3A)");
+		})
 		$('#btn_beli_pulsa').click(function () {
 			sendData({{site.whatsapp}}, 
 			"Kak saya mau beli pulsa %0A" + 

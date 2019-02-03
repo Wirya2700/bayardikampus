@@ -1,6 +1,6 @@
 - product: pulpen standart
   harga: 2
-  urlimg: ./img/bg.jpg
+  urlimg: img/bg.jpg
 - product: penghapus
   harga: 4
-  urlimg: ./img/bg.jpg
+  urlimg: img/bg.jpg
