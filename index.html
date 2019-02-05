@@ -20,10 +20,12 @@ layout: default
 	<div>
 		{% for section in site.data.products %}
 		<div class="filterdiv {{section.product}}">
-			<a href="http://api.whatsapp.com/send?phone={{site.whatsapp}}&text=Kak saya mau beli 1 buah {{section.product}} Rp{{section.harga}}rb besok bayarnya di kampus UINSMH ia kak %3A)">
+			<a href="{{site.baseurl}}/product/{{section.product}}">
 				<div class="product">
 					<img src="{{ site.baseurl }}/{{section.urlimg}}"></img>
-					<p><a href="http://api.whatsapp.com/send?phone={{site.whatsapp}}&text=Kak saya mau beli 1 buah {{section.product}} Rp{{section.harga}}rb besok bayarnya di kampus UINSMH ia kak %3A)">{{section.product}}</a><br><span>Rp {{section.harga}}rb</span></p>
+					<div class="product-title">
+						<p><a href="{{site.baseurl}}/product/{{section.product}}">{{section.product}}</a><br><span>Rp {{section.harga}}</span></p>
+					</div>
 				</div>
 			</a>
 		</div>

@@ -17,7 +17,7 @@
 		<div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
 				{% for section in site.data.menu %}
-				<li class="{% if page.title==section.title %} active {% endif %}">
+				<li class="{% if page.title==section.active %} active {% endif %}">
 					<a href="{{site.baseurl}}/{{section.name}}">{{section.title}}</a>
 				</li>
 				{% endfor %}

@@ -1,4 +1,6 @@
 - title: EVoucher
   name: evoucher
+  active: EVoucher
 - title: ATK
   name: atk
+  active: Alat Tulis Kantor
