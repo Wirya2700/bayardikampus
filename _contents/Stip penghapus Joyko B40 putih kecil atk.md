@@ -1,6 +1,6 @@
 ---
-permalink: "/product/Stip penghapus Joyko B40 kecil atk"
-title: Stip penghapus Joyko B40 kecil atk
+permalink: "/product/Stip penghapus Joyko B40 putih kecil atk"
+title: Stip penghapus Joyko B40 putih kecil atk
 layout: product
 ---
 
@@ -12,7 +12,7 @@ Harga : <span style="color:#42b549">**Rp{{section.harga}}**</span>  <a class="bt
 	{% endif %}
 {% endfor %}
 
-<image src="{{site.baseurl}}/img/Stip penghapus Joyko B40 kecil atk.jpg" alt="Product" width="80%" height="50%" style="max-width:400px;max-height:400px"/>
+<image src="{{site.baseurl}}/img/Stip penghapus Joyko B40 putih kecil atk.png" alt="Product" width="80%" height="50%" style="max-width:400px;max-height:400px"/>
 
 Ready Stip Joyko B40 Kecil  
 *Tipe: Stip penghapus  
