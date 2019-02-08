@@ -58,23 +58,34 @@
 						</div>
 					</div>
 				</div>
+				<div class="form-group col-sm-2">
+					Bank Tujuan
+					<select name="bank_tujuan" id="bank_tujuan" class="form-control">
+						<option value="BRI">BRI</option>
+						<option value="BCA">BCA</option>
+						<option value="BNI">BNI</option>
+						<option value="BTN">BTN</option>
+						<option value="BJB">BJB</option>
+						<option value="Mandiri">Mandiri</option>
+					</select>
+				</div>
 				<div class="form-group col-sm-4">
 					<label>Rekening Tujuan</label>
 					<input type="number" id="txt_no_rekening_tujuan" name="txt_no_rekening_tujuan" class="form-control">
 				</div>
-				<div class="form-group col-sm-3">
+				<div class="form-group col-sm-2">
 					<label>Jumlah uang</label>
 					<input type="number" id="txt_jml_uang" name="txt_jml_uang" class="form-control" onkeyup="keypressInText()">
 				</div>
-				<div class="form-group col-sm-3">
+				<div class="form-group col-sm-2">
 					<label>Total (+biaya admin)</label><br>
 					<label><strong><span id="lbl_total">0</span></strong></label>
 				</div>
-				<div class="form-group col-sm-2"><br>
+				<div class="form-group col-sm-2">
 					<a class="btn btn-success" id="btn_kirim_uang" name="btn_kirim_uang">Kirim Uang</a>
 				</div>
 				<div class="form-group col-sm-12">
-					<p style="color:red">*Biaya admin Rp3rb</p>
+					<p style="color:red">*Biaya admin Rp2500</p>
 				</div>
 			</fieldset>
 		</form>
@@ -378,13 +389,14 @@
 
 <script type="text/javascript">
 	function keypressInText() {
-		document.getElementById("lbl_total").innerHTML = (Number($("#txt_jml_uang").val()) + 3000)
+		document.getElementById("lbl_total").innerHTML = (Number($("#txt_jml_uang").val()) + 2000)
 	};
 	
 	$(document).ready(function () {
 		$('#btn_kirim_uang').click(function () {
 			sendData({{site.whatsapp}}, 
 			"Kak saya mau kirim uang ke %0A" + 
+			"Bank Tujuan%3A " + $("#bank_tujuan").val() + "%0A" +
 			"Rek Tujuan%3A " + $("#txt_no_rekening_tujuan").val() + "%0A" +
 			"Jumlah%3A " + $("#txt_jml_uang").val() + "%0A" +
 			"Cepet ia kak %3A)");
