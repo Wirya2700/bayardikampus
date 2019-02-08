@@ -8,7 +8,7 @@ layout: product
 
 {% for section in site.data.products %}
 	{% if page.title==section.product %}
-Harga : <span style="color:#42b549">**Rp{{section.harga}}**</span>  <a class="btn btn-success" href="http://api.whatsapp.com/send?phone={{site.whatsapp}}&text=kak saya mau beli {{page.title}} {{section.harga}} 1 buah bayarnya di kampus ia kak %3A)" style="width:100px;">Beli</a>
+Harga : <span style="color:#42b549">**Rp{{section.harga}}**</span>  <a class="btn btn-success" href="http://api.whatsapp.com/send?phone={{site.whatsapp}}&text=kak saya mau beli {{page.title}} 1 buah %0A harga%3A {{section.harga}} bayarnya di kampus ia kak %3A)" style="width:100px;">Beli</a>
 	{% endif %}
 {% endfor %}
 
