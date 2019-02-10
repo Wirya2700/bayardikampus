@@ -39,7 +39,7 @@
   operator: Indosat
   harga: 12
 - name: Internet Unlimited + 1GB
-  identity: Internet_Unlimited_1GB
+  identity: Internet_Unlimited___1GB
   keterangan: Kuota utama 1GB (2G/3G/4G). Bebas akses aplikasi sehari-hari (Gojek, Grab, Uber, WhatsApp, BBM, Facebook, Line, Twitter, Path, Facebook Messanger, Spotify, Iflix). Masa aktif 30 Hari.
   operator: Indosat
   harga: 26
@@ -49,7 +49,7 @@
   operator: Indosat
   harga: 37
 - name: Internet Unlimited + 2GB
-  identity: Internet_Unlimited_2GB
+  identity: Internet_Unlimited___2GB
   keterangan: Kuota utama 2GB (2G/3G/4G). Bebas akses aplikasi sehari-hari (Gojek, Grab, Uber, WhatsApp, BBM, Facebook, Line, Twitter, Path, Facebook Messanger, Spotify, Iflix). Masa aktif 30 Hari.
   operator: Indosat
   harga: 40
@@ -59,7 +59,7 @@
   operator: Indosat
   harga: 43
 - name: Internet Unlimited + 3GB
-  identity: Internet_Unlimited_3GB
+  identity: Internet_Unlimited___3GB
   keterangan: Kuota utama 3GB (2G/3G/4G). Bebas SMS ke sesama Indosat + akses aplikasi sehari-hari (Gojek, Grab, Uber, WhatsApp, BBM, Facebook, Line, Twitter, Path, Facebook Messanger, Spotify, Iflix). Masa aktif 30 Hari.
   operator: Indosat
   harga: 50
@@ -79,7 +79,7 @@
   operator: Indosat
   harga: 59
 - name: Internet Unlimited + 7GB
-  identity: Internet_Unlimited_7GB
+  identity: Internet_Unlimited___7GB
   keterangan: Kuota utama 7GB (2G/3G/4G). Bebas SMS ke sesama Indosat + akses aplikasi sehari-hari (Gojek, Grab, Uber, WhatsApp, BBM, Facebook, Line, Twitter, Path, Facebook Messanger, Spotify, Iflix) + Youtube (via MyIM3). Masa aktif 30 Hari.
   operator: Indosat
   harga: 67
@@ -94,7 +94,7 @@
   operator: Indosat
   harga: 73
 - name: Internet Unlimited + 10GB
-  identity: Internet_Unlimited_10GB
+  identity: Internet_Unlimited___10GB
   keterangan: Kuota utama 10GB (2G/3G/4G). Bebas SMS dan nelpon ke sesama Indosat + akses aplikasi sehari-hari (Gojek, Grab, Uber, WhatsApp, BBM, Facebook, Line, Twitter, Path, Facebook Messanger, Spotify, Iflix) + Youtube (via MyIM3). Masa aktif 30 Hari.
   operator: Indosat
   harga: 90
@@ -104,7 +104,7 @@
   operator: Indosat
   harga: 91
 - name: Internet Unlimited + 15GB
-  identity: Internet_Unlimited_15GB
+  identity: Internet_Unlimited___15GB
   keterangan: Kuota utama 15GB (2G/3G/4G). Bebas SMS dan nelpon ke sesama Indosat + akses aplikasi sehari-hari (Gojek, Grab, Uber, WhatsApp, BBM, Facebook, Line, Twitter, Path, Facebook Messanger, Spotify, Iflix) + Youtube (via MyIM3). Masa aktif 30 Hari.
   operator: Indosat
   harga: 110
@@ -149,17 +149,17 @@
   operator: Three
   harga: 28
 - name: Mix Kuota++ 1.25GB
-  identity: Mix_Kuota_1_25GB
+  identity: Mix_Kuota___1_25GB
   keterangan: Kuota Data 1.25GB. Bebas internetan seharian tanpa batas waktu penggunaan (00.00 - 24.00). Masa berlaku mengikuti masa aktif kartu.
   operator: Three
   harga: 35
 - name: Mix Combo 2GB + 20 menit
-  identity: Mix_Combo_2GB_20_menit
+  identity: Mix_Combo_2GB___20_menit
   keterangan: Kuota data 2GB berlaku di semua jaringan + 20 menit telephon ke semua operator.
   operator: Three
   harga: 37
 - name: Mix Kuota++ 2.25GB
-  identity: Mix_Kuota_2_25GB
+  identity: Mix_Kuota___2_25GB
   keterangan: Kuota Data 2.25GB. Masa berlaku mengikuti masa aktif kartu.
   operator: Three
   harga: 52
@@ -169,7 +169,7 @@
   operator: Three
   harga: 53
 - name: Mix Combo 32Gb + 30 menit
-  identity: Mix_Combo_32Gb_30_menit
+  identity: Mix_Combo_32Gb___30_menit
   keterangan: Kuota data 2GB berlaku di semua jaringan + 30GB pada jaringan 4G dengan penggunaan maksimal 1GB per hari + 30 menit telephon ke semua operator.
   operator: Three
   harga: 62
@@ -184,7 +184,7 @@
   operator: Three
   harga: 101
 - name: Mix Combo 38GB + 30 Menit
-  identity: Mix_Combo_38GB_30_Menit
+  identity: Mix_Combo_38GB___30_Menit
   keterangan: Kuota data 8GB berlaku di semua jaringan + 30GB pada jaringan 4G + 30 menit telephon ke semua operator.
   operator: Three
   harga: 126
@@ -209,17 +209,17 @@
   operator: Telkomsel
   harga: 52
 - name: 12GB + 2GB Video
-  identity: 12GB_2GB_Video
+  identity: 12GB___2GB_Video
   keterangan: Kuota Utama 12GB berlaku di semua jaringan dan semua daerah + bonus 2GB VideoMax. Masa aktif 30 hari.
   operator: Telkomsel
   harga: 101
 - name: 50GB + 2GB Video
-  identity: 50GB_2GB_Video
+  identity: 50GB___2GB_Video
   keterangan: Kuota Utama 50GB berlaku di semua jaringan dan semua daerah + bonus 2GB VideoMax. Masa aktif 30 hari.
   operator: Telkomsel
   harga: 199
 - name: Axis BRONET 4G OWSEM 1GB + 1GB
-  identity: Axis_BRONET_4G_OWSEM_1GB_1GB
+  identity: Axis_BRONET_4G_OWSEM_1GB___1GB
   keterangan: Kuota Data 1GB + 1GB (4G). Masa aktif 30 hari.
   operator: AXIS
   harga: 25
@@ -229,7 +229,7 @@
   operator: AXIS
   harga: 31
 - name: Axis BRONET 4G OWSEM 1GB + 3GB
-  identity: Axis_BRONET_4G_OWSEM_1GB_3GB
+  identity: Axis_BRONET_4G_OWSEM_1GB___3GB
   keterangan: Kuota Data 1GB + 3GB (4G). Masa aktif 30 hari.
   operator: AXIS
   harga: 38
@@ -239,7 +239,7 @@
   operator: AXIS
   harga: 41
 - name: Axis BRONET 4G OWSEM 2GB + 6GB
-  identity: Axis_BRONET_4G_OWSEM_2GB_6GB
+  identity: Axis_BRONET_4G_OWSEM_2GB___6GB
   keterangan: Kuota Data 2GB + 6GB (4G). Masa aktif 30 hari.
   operator: AXIS
   harga: 59
@@ -249,7 +249,7 @@
   operator: AXIS
   harga: 62
 - name: Axis BRONET 4G OWSEM 3GB + 9GB
-  identity: Axis_BRONET_4G_OWSEM_3GB_9GB
+  identity: Axis_BRONET_4G_OWSEM_3GB___9GB
   keterangan: Kuota Data 3GB + 9GB (4G). Masa aktif 30 hari.
   operator: AXIS
   harga: 76

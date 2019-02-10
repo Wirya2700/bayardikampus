@@ -408,7 +408,7 @@
 			{% endfor %}
 			
 			if($(this).val() != "" || $(this).val() != null ){
-				var pak = $(this).val().replace(/ /g, "_").replace(".", "_").replace("(", "").replace(")", "");
+				var pak = $(this).val().replace(/ /g, "_").replace("++", "__").replace("+", "_").replace(".", "_").replace("(", "").replace(")", "");
 				$("#" + pak).show();
 			}
 		})
