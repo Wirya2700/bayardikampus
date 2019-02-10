@@ -1,5 +1,5 @@
 # Site settings
-title: Toko Recehan
+title: Bayar Di Kampus
 email: wirya2700@gmail.com
 facebook: WiryAl.Mustofha
 whatsapp: '6283877101953'
@@ -9,9 +9,9 @@ my_name: Wirya Al-Mustofa
 description: >
   Jual alat tulis kantor, pulsa, paket data, listrik pln, voucher game, BPJS, PDAM, barang elektronik dan masih banyak lagi di lingkungan Universitas Islam Negeri Sultan Maulana Hasanuddin Banten
 
-baseurl: "/tokorecehan" # the subpath of your site, e.g. /blog/
-url: https://wirya2700.github.io/tokorecehan # the base hostname & protocol for your site
-git_address: https://github.com/wirya2700/tokorecehan
+baseurl: "" #"/bayardikampus" # the subpath of your site, e.g. /blog/
+url: "" # https://wirya2700.github.io/bayardikampus # the base hostname & protocol for your site
+git_address: https://github.com/wirya2700/bayardikampus
 
 # theme options from https://bootswatch.com/
 # comment out this to use default Bootstrap

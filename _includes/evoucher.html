@@ -2,7 +2,7 @@
 	<li class="active"><a data-toggle="tab" href="#pulsa">Pulsa</a></li>
 	<li><a data-toggle="tab" href="#paketdata">Paket Data</a></li>
 	<li><a data-toggle="tab" href="#kirim_uang">Kirim Uang</a></li>
-	<li><a data-toggle="tab" href="#token_listrik">Tokon Listrik</a></li>
+	<li><a data-toggle="tab" href="#token_listrik">Token Listrik</a></li>
 	<li><a data-toggle="tab" href="#voucher_game">Voucher Game</a></li>
 </ul>
 
@@ -18,7 +18,7 @@
 					Nominal
 					<select name="nominal" id="nominal" class="form-control">
 						{% for pulsa in site.data.pulsa %}
-							<option value="{{pulsa.name}}">{{pulsa.nominal}} (Rp{{pulsa.harga}}rb)</option>
+							<option value="{{pulsa.name}} (Rp{{pulsa.harga}}rb)">{{pulsa.nominal}} (Rp{{pulsa.harga}}rb)</option>
 						{% endfor %}
 					</select>
 				</div>
@@ -36,13 +36,18 @@
 					<input type="number" id="txt_no_paket" name="txt_no_paket" class="form-control">
 				</div>
 				<div class="form-group col-sm-5">
-					Pilih Paket
+					<label>Pilih Paket</label>
 					<select name="nominal_paket" id="nominal_paket" class="form-control">
 					
 					</select>
 				</div>
 				<div class="form-group col-sm-2"><br>
 					<a type="submit" class="btn btn-success" id="btn_paket_data" name="btn_paket_data">Beli paket</a>
+				</div>
+			</fieldset>
+			<fieldset>
+				<div class="form-group col-sm-10" id="info_paket" name="info_paket">
+					<label>Info Paket: <i>Pilih paket untuk menampilkan informasi paket</i></label><br>
 				</div>
 			</fieldset>
 		</form>
@@ -389,50 +394,65 @@
 
 <script type="text/javascript">
 	function keypressInText() {
-		document.getElementById("lbl_total").innerHTML = (Number($("#txt_jml_uang").val()) + 2000)
+		document.getElementById("lbl_total").innerHTML = (Number($("#txt_jml_uang").val()) + 2500)
 	};
 	
 	$(document).ready(function () {
+		{% for paket in site.data.paket_data %}
+			$("#info_paket").append('<div id="{{paket.identity}}_Rp{{paket.harga}}rb" name="{{paket.identity}}_Rp{{paket.harga}}rb" style="display:none;margin-top: 40px !important"><b>{{paket.keterangan}}</b><br></div>');
+		{% endfor %}
+		
+		$('#nominal_paket').click(function () {
+			{% for paket in site.data.paket_data %}
+				$("#{{paket.identity}}_Rp{{paket.harga}}rb").hide();
+			{% endfor %}
+			
+			if($(this).val() != "" || $(this).val() != null ){
+				var pak = $(this).val().replace(/ /g, "_").replace(".", "_").replace("(", "").replace(")", "");
+				$("#" + pak).show();
+			}
+		})
+		
 		$('#btn_kirim_uang').click(function () {
 			sendData({{site.whatsapp}}, 
 			"Kak saya mau kirim uang ke %0A" + 
 			"Bank Tujuan%3A " + $("#bank_tujuan").val() + "%0A" +
 			"Rek Tujuan%3A " + $("#txt_no_rekening_tujuan").val() + "%0A" +
 			"Jumlah%3A " + $("#txt_jml_uang").val() + "%0A" +
-			"Cepet ia kak %3A)");
+			"Cepet ia kak, nanti sy bayarnya di kampus ok %3A)");
 		})
 		$('#btn_beli_pulsa').click(function () {
 			sendData({{site.whatsapp}}, 
 			"Kak saya mau beli pulsa %0A" + 
 			"No%3A " + $("#txt_no").val() + "%0A" +
 			"Yang%3A " + $("#nominal").val() + "%0A" +
-			"Cepet ia kak %3A)");
+			"Cepet ia kak, nanti sy bayarnya di kampus ok %3A)");
 		})
 		$('#btn_paket_data').click(function () {
 			sendData({{site.whatsapp}}, 
 			"Kak saya mau beli paket data %0A" + 
 			"No%3A " + $("#txt_no_paket").val() + "%0A" +
 			"Yang%3A " + $("#nominal_paket").val() + "%0A" +
-			"Cepet ia kak %3A)");
+			"Cepet ia kak, nanti sy bayarnya di kampus ok %3A)");
 		})
 		$('#btn_beli_token_listrik').click(function () {
 			sendData({{site.whatsapp}}, 
 			"Kak saya mau beli token pulsa %0A" + 
 			"ID Pelanggan%3A " + $("#txt_id_pelanggan").val() + "%0A" +
 			"Yang%3A " + $("#nominal_token_listrik").val() + "%0A" +
-			"Cepet ia kak %3A)");
+			"Cepet ia kak, nanti sy bayarnya di kampus ok %3A)");
 		})
 		$('#btn_beli_voucher_google_play').click(function () {
 			sendData({{site.whatsapp}}, 
 			"Kak saya mau beli voucher google play yang " + $("#nominal_voucher_google_play").val() + "%0A" +
-			"Cepet ia kak %3A)");
+			"Cepet ia kak, nanti sy bayarnya di kampus ok %3A)");
 		})
 		$('#btn_beli_voucher_regnarok_mel').click(function () {
 			sendData({{site.whatsapp}}, 
 			"Kak saya mau beli voucher Ragnarok MEL%0A" + 
 			"ID%3A " + $("#txt_id_ragnarok").val() + "%0A" +
 			"Yang%3A " + $("#nominal_voucher_regnarok_mel").val() + "%0A" +
-			"Cepet ia kak %3A)");
+			"Cepet ia kak, nanti sy bayarnya di kampus ok %3A)");
 		})
 		$('#btn_beli_voucher_ml').click(function () {
 			sendData({{site.whatsapp}}, 
@@ -440,35 +460,36 @@
 			"ID%3A " + $("#txt_id_ml").val() + "%0A" +
 			"Server%3A " + $("#txt_server_ml").val() + "%0A" +
 			"Yang%3A " + $("#nominal_voucher_ml").val() + "%0A" +
-			"Cepet ia kak %3A)");
+			"Cepet ia kak, nanti sy bayarnya di kampus ok %3A)");
 		})
 		$('#btn_beli_voucher_free_fire').click(function () {
 			sendData({{site.whatsapp}}, 
 			"Kak saya mau beli voucher Free Fire%0A" + 
 			"ID%3A " + $("#txt_id_free_fire").val() + "%0A" +
 			"Yang%3A " + $("#nominal_voucher_free_fire").val() + "%0A" +
-			"Cepet ia kak %3A)");
+			"Cepet ia kak, nanti sy bayarnya di kampus ok %3A)");
 		})
 		$('#btn_beli_voucher_aov').click(function () {
 			sendData({{site.whatsapp}}, 
 			"Kak saya mau beli voucher AOV%0A" + 
 			"ID%3A " + $("#txt_id_aov").val() + "%0A" +
 			"Yang%3A " + $("#nominal_voucher_aov").val() + "%0A" +
-			"Cepet ia kak %3A)");
+			"Cepet ia kak, nanti sy bayarnya di kampus ok %3A)");
 		})
 		$('#btn_beli_voucher_pubg').click(function () {
 			sendData({{site.whatsapp}}, 
 			"Kak saya mau beli voucher AOV" + " yang " + $("#nominal_voucher_pubg").val() + "%0A" +
-			"Cepet ia kak %3A)");
+			"Cepet ia kak, nanti sy bayarnya di kampus ok %3A)");
 		})
 		$('#btn_beli_voucher_steam_wallet').click(function () {
 			sendData({{site.whatsapp}}, 
 			"Kak saya mau beli voucher Steam Wallet" + " yang " + $("#nominal_voucher_steam_wallet").val() + "%0A" +
-			"Cepet ia kak %3A)");
+			"Cepet ia kak, nanti sy bayarnya di kampus ok %3A)");
 		})
 		function clearOption(){
 			{% for paket in site.data.paket_data %}
-				$('option[value="{{paket.name}}"]', $('#nominal_paket')).remove();
+				$('option[value="{{paket.name}} (Rp{{paket.harga}}rb)"]', $('#nominal_paket')).remove();
+				$('#{{paket.identity}}').hide();
 			{% endfor %}
 		}
 		$('#txt_no_paket').keyup(function () {
