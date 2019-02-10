@@ -413,6 +413,17 @@
 			}
 		})
 		
+		$('#nominal_paket').change(function () {
+			{% for paket in site.data.paket_data %}
+				$("#{{paket.identity}}_Rp{{paket.harga}}rb").hide();
+			{% endfor %}
+			
+			if($(this).val() != "" || $(this).val() != null ){
+				var pak = $(this).val().replace(/ /g, "_").replace("++", "__").replace("+", "_").replace(".", "_").replace("(", "").replace(")", "");
+				$("#" + pak).show();
+			}
+		})
+		
 		$('#btn_kirim_uang').click(function () {
 			sendData({{site.whatsapp}}, 
 			"Kak saya mau kirim uang ke %0A" + 
